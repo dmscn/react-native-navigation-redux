@@ -1,18 +1,19 @@
-import React, { Component } from "react";
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { connect } from "react-redux";
+import { SwitchNavigator, addNavigationHelpers } from "react-navigation";
 
-import AppReducers from './store/reducers/AppReducers';
-import AppWithNavigationState from './navigators/AppNavigator';
+import { AuthStack, MainStack } from "./navigation";
 
-class App extends Component {
-  store = createStore(AppReducers);
-
-  render() {
-    <Prodiver store={store}>
-      <AppWithNavigationState />
-    </Prodiver>
+export const AppNavigator = SwitchNavigator(
+  {
+    AuthStack: AuthStack,
+    MainStack: MainStack
+  },
+  {
+    headerMode: "none",
+    initialRouteName: "MainStack" // temporary
   }
-}
+);
 
-export default App;
+export default AppNavigator;

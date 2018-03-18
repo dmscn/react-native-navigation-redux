@@ -1,10 +1,10 @@
-import { createStore, combineReducers, compose } from 'redux';
+import { createStore, combineReducers, compose } from "redux";
 
-import placesReducer from './reducers/places';
+import placesReducer from "./reducers/places";
 
 const rootReducer = combineReducers({
   places: placesReducer
-})
+});
 
 let composeEnhancers = compose;
 
@@ -13,7 +13,7 @@ if (__DEV__) {
 }
 
 const configureStore = () => {
-  return createStore(rootReducer, composeEnhancers())
-}
+  return createStore(rootReducer, composeEnhancers());
+};
 
 export default configureStore;
