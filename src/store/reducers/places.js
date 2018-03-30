@@ -18,7 +18,7 @@ const reducer = (state = initialState, action) => {
           name: action.placeName,
           image: { uri: "https://c1.staticflickr.com/5/4096/4744241983_34023bf303_b.jpg" }
         })
-      }
+      };
       break;
     
     case REMOVE_PLACE:
@@ -27,7 +27,7 @@ const reducer = (state = initialState, action) => {
         places: state.places.filter(place => {
           return place.key !== action.placeKey;
         })
-      }
+      };
       break;
     
     default:

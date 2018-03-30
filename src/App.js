@@ -12,7 +12,9 @@ export const AppNavigator = SwitchNavigator(
   },
   {
     headerMode: "none",
+    
     initialRouteName: "MainStack" // temporary
+    
   }
 );
 
