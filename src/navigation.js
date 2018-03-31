@@ -1,5 +1,6 @@
 import React from 'react';
 import {StackNavigator, TabNavigator} from 'react-navigation';
+import Icon from '@expo/vector-icons/Ionicons';
 
 import SignIn from './screens/SignIn/SignIn';
 import FindPlace from './screens/FindPlace/FindPlace';
@@ -15,7 +16,7 @@ const MainTabs = TabNavigator({
   FindPlace:  {
     screen: FindPlace,
     navigationOptions: {
-      title: 'Find Place',
+      title: 'Find Place'
     }
   },
   SharePlace: {
@@ -26,6 +27,7 @@ const MainTabs = TabNavigator({
   }
 },
 {
+  initialRouteName: 'SharePlace',  // temporary cheat
   tabBarPosition: 'bottom',
   tabBarOptions: {
     indicatorStyle: {

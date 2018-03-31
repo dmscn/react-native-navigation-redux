@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
+import {
+  View,
+  Text
+} from 'react-native';
 import { connect } from 'react-redux';
+import Icon from '@expo/vector-icons/Ionicons';
 
 import PlaceList from '../../components/PlaceList';
 
 class FindPlace extends Component {
   render() {
     return (
-      <PlaceList places={this.props.places} />
+      <View>
+        <PlaceList places={this.props.places} />
+      </View>
     );
   }
 }
