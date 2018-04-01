@@ -15,12 +15,20 @@ class PlaceInput extends Component {
   state = {
     placeName: ''
   }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this._inputPlace.focus();
+    }, 200);
+  }
   
   _handleChangeText = placeName => {
     this.setState({ placeName });
   }
 
   _handleAddNewPlace = () => {
+    if(this.state.placeName.trim() === '') return;
+
     this.props.onAddNewPlace(this.state.placeName);
     this.setState({ placeName: '' });
   }
@@ -31,10 +39,14 @@ class PlaceInput extends Component {
         <Heading style={styles.item}>{strings.STR_ADD_NEW_PLACE}</Heading>
 
         <UITextInput
+          onRef={ref => {this._inputPlace = ref}}          
           style={styles.item}
           placeholder={placeholders.PH_PLACENAME}
           onChangeText={this._handleChangeText} 
-          value={this.state.placeName}/>
+          value={this.state.placeName}
+          autoCapitalize="words"
+          returnKeyType="done" />
+
 
         <UIButton 
           style={styles.item}

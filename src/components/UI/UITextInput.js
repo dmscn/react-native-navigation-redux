@@ -3,14 +3,14 @@ import { View, TextInput, StyleSheet } from 'react-native';
 import colors from 'Colors';
 
 const UITextInput = props => (
-  <View>
-    <TextInput
-      underlineColorAndroid="transparent"
-      {...props}
-      style={[styles.input, props.style]}
-      selectionColor={colors.primary}
-    />
-  </View>
+  <TextInput
+    ref={props.onRef}
+    underlineColorAndroid="transparent"
+    selectionColor={colors.primary}
+    {...props}
+    style={[styles.input, props.style]}
+    autoFocus={props.autoFocus}
+  />
 );
 
 const styles = StyleSheet.create({

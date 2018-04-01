@@ -9,6 +9,13 @@ import App from './src/App';
 class UdemyProject extends Component {
   store = configureStore();
 
+  async componentWillMount() {
+    await Expo.Font.loadAsync({
+      'Roboto': require('native-base/Fonts/Roboto.ttf'),
+      'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+    });
+  }
+
   render() {
     return (
       <Provider store={this.store}>
