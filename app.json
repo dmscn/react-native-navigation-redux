@@ -1,5 +1,20 @@
 {
   "expo": {
-    "sdkVersion": "25.0.0"
+    "name": "Places",
+    "icon": "./src/assets/icon/icon.png",
+    "version": "0.0.1",
+    "slug": "places",
+    "sdkVersion": "25.0.0",
+    "ios": {
+      "bundleIdentifier": "com.dmscn.places"
+    },
+    "android": {
+      "package": "com.dmscn.places",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAW6fQM7B7ts1vxe4oKhethg70EquxEono"
+        }
+      }
+    }
   }
 }

@@ -9,24 +9,17 @@ import Icon from '@expo/vector-icons/Ionicons';
 
 import UITextInput from './UI/UITextInput';
 import UIButton from './UI/UIButton';
-import Heading from "./UI/Heading";
 
 class PlaceInput extends Component {
   state = {
     placeName: ''
   }
 
-  componentDidMount() {
-    setTimeout(() => {
-      this._inputPlace.focus();
-    }, 200);
-  }
-  
   _handleChangeText = placeName => {
     this.setState({ placeName });
   }
 
-  _handleAddNewPlace = () => {
+  _handleSubmitText = () => {
     if(this.state.placeName.trim() === '') return;
 
     this.props.onAddNewPlace(this.state.placeName);
@@ -35,9 +28,7 @@ class PlaceInput extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Heading style={styles.item}>{strings.STR_ADD_NEW_PLACE}</Heading>
-
+      <View style={[styles.container, this.props.style]}>
         <UITextInput
           onRef={ref => {this._inputPlace = ref}}          
           style={styles.item}
@@ -45,14 +36,8 @@ class PlaceInput extends Component {
           onChangeText={this._handleChangeText} 
           value={this.state.placeName}
           autoCapitalize="words"
-          returnKeyType="done" />
-
-
-        <UIButton 
-          style={styles.item}
-          onPress={this._handleAddNewPlace}>
-          Add Place
-        </UIButton>
+          returnKeyType="done"
+          onBlur={this._handleSubmitText} />
       </View>
     );
   }
@@ -60,9 +45,7 @@ class PlaceInput extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,  
-    justifyContent: 'center',
-    margin: 16,
+    flex: 1,
   },
 
   item: {
